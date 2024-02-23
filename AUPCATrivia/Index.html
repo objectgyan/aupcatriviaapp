@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AUPCA Trivia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+    <style>
+        .option {
+        cursor: pointer;
+    }
+    .disabled {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+    .correct {
+        background-color: #d4edda; /* green */
+    }
+    .wrong {
+        background-color: #f8d7da; /* red */
+    }
+    </style>
+</head>
+<body class="container">
+    <h1 class="my-3">AUPCA Trivia</h1>
+    <div id="register" class="my-3">
+        <input type="text" id="name" placeholder="Enter your name" class="form-control">
+        <button onclick="register()" class="btn btn-primary mt-2">Start Game</button>
+    </div>
+    <div id="game" style="display: none;" class="my-3">
+        <p id="question" class="h4"></p>
+        <div id="optionA" class="option my-2" onclick="submitAnswer('A')"><span>A:</span> <span class="option-text"></span></div>
+        <div id="optionB" class="option my-2" onclick="submitAnswer('B')"><span>B:</span> <span class="option-text"></span></div>
+        <div id="optionC" class="option my-2" onclick="submitAnswer('C')"><span>C:</span> <span class="option-text"></span></div>
+        <div id="optionD" class="option my-2" onclick="submitAnswer('D')"><span>D:</span> <span class="option-text"></span></div>
+        <button onclick="nextQuestion()" class="btn btn-secondary mt-2">Next Question</button>
+    </div>
+    <div id="end" style="display: none;" class="my-3">
+        <p class="h2">Game Over</p>
+        <p id="scores" class="h4"></p>
+        <button onclick="restartGame()" class="btn btn-primary mt-2">Restart Game</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
